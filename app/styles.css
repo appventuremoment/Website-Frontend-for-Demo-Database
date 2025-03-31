@@ -1,0 +1,154 @@
+:root{
+    --fade-in-start-opacity: 0
+}
+
+.fade-in {
+    opacity: var(--fade-in-start-opacity);
+    transform: translateY(10%);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+.fade-in-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Div 1 Styles */
+#div-1 {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/home1.png");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    user-select: none;
+}
+
+#front-logo{
+    position: absolute;
+    top: 40%;
+    font-size: 600%;
+    color: var(--secondary-colour);
+}
+
+#tagline{
+    position: absolute;
+    top: 60%;
+    font-size: 260%;
+    color: var(--secondary-colour);
+}
+
+/* Div 2 Styles */
+#div-2{
+    overflow-x: hidden;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    user-select: none;
+}
+
+#div-2-header{
+    position: absolute;
+    top: 5%;
+    font-size: 260%;
+}
+
+#image-track{
+    display: flex;
+    gap: 2vmin;
+    user-select: none;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translate(0%, -50%);
+    height: max-content;
+    width: max-content;
+}
+
+#image-track > .image{
+    overflow-x: hidden;
+    width: 35vh;
+    height: 45vh;
+    object-fit: cover;
+    object-position: 100% 50%;
+}
+
+/* About Us Div (Div 3) Styles */
+#about-us-div{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    user-select: none;
+    background-color: var(--secondary-colour);
+}
+
+#info-image{
+    position: absolute;
+    top: 20%;
+    width: 80vh;
+    height: 60vh;
+}
+
+#section-header{
+    position: absolute;
+    top: 20%;
+    font-size: 510%;
+}
+#section-subtext{
+    position: absolute;
+    max-width: 82.5vh;
+    word-wrap: break-word;
+    text-align: center;
+    top: 50%;
+    font-size: 150%;
+}
+
+
+/* Div 4 Styles */
+#div-4{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    user-select: none;
+}
+
+/* Contact Us Div (Div 5) Styles */
+#contact-us-div{
+    position: relative;
+    width: 100vw;
+    height: 35vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    user-select: none;
+    background-color: var(--dark-primary-colour);
+    color: var(--primary-colour);
+}
+
+#contact-us-header{
+    position: absolute;
+    top: 5%;
+    font-size: 285%;
+}
+
+#contact-us-icon{
+    position: absolute;
+    width: 5.5vh;
+    height: 5.5vh;
+    align-items: center;
+}
+
+#contact-us-details{
+    position: absolute;
+    font-size: 120%;
+    justify-content: center;
+}

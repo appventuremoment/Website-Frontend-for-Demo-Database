@@ -1,0 +1,101 @@
+body{
+    /* background-image: url('./cat-background.gif'); */
+    background-image: url('/home1.png');
+    background-size: cover;
+}
+
+#form{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 80vh;
+    width: 35vw;
+}
+
+#background{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    background-color: var(--primary-colour);
+    align-items: center;
+    height: 80vh;
+    width: 35vw;
+    border-radius: 1.5vh;
+}
+
+#hyperlink-container {
+    display: flex;
+    width: 100%;
+    padding-left: 7.5%;
+    position: absolute;
+    top: 5%;
+}
+
+#hyperlink {
+    position: relative;
+    color: #e7a543;
+    text-decoration: none;
+    font-family: var(--alternative-font);
+    font-weight: bold;
+    font-size: 2.2vh;
+}
+  
+#hyperlink:hover {
+    filter: brightness(0.8);
+    text-decoration: underline;
+}
+
+#logo{
+    color: #f4a950;
+    position: absolute;
+    top: 13.5%;
+    font-family: Garamond;
+    font-size: 8vh;
+    height: 8vh;
+}
+
+#input-field{
+    position: absolute;
+    width: 85%;
+    font-size: 3vh;
+    height: fit-content;
+    border: 0.3vh solid #c4c4c4;
+    border-radius: 1vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;    
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+#eye-icon{
+    position: absolute;
+    right: 7%;
+    height: 6.9vh;
+    width: 6.9vh;
+}
+#eye-icon:hover{
+    cursor: pointer;
+}
+
+#register-button{
+    position: absolute;
+    bottom: 3%;
+    width: 85%;
+    height: 12%;
+    background-color: #fdd47f;
+    color: #333333;
+    font-family: var(--alternative-font);
+    font-size: 3.3vh;
+    border-radius: 100vh;
+    user-select: none;
+}
+
+#register-button:hover{
+    filter: brightness(0.8);
+}  
