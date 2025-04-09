@@ -69,15 +69,15 @@
     position: absolute;
     top: 50%;
     left: 5%;
-    transform: translate(0%, -50%);
+    transform: translate(0%, -40%);
     height: max-content;
     width: max-content;
 }
 
 #image-track > .image{
     overflow-x: hidden;
-    width: 35vh;
-    height: 45vh;
+    width: 35vw;
+    height: 75vh;
     object-fit: cover;
     object-position: 100% 50%;
 }

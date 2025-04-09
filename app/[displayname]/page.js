@@ -1,17 +1,12 @@
 'use client';
 import './styles.css'
-import { use, useEffect, useLayoutEffect } from "react";
+import { use, useEffect } from "react";
 
 export default function Home({params}) {
-  useLayoutEffect(() =>{
-    // TODO: Consider removing force scroll to top
-    // window.scrollTo(0, 0);
-  }, []);
-
   useEffect(() => {
     // Handle Scrolling for Scrolling Pane
     const track = document.getElementById("image-track");
-    const maxShift = -62.5;
+    const maxShift = -50;
     
     const handleScroll = () => {
       const scrolledPos = Math.max(track.getBoundingClientRect().top, 0);
@@ -22,7 +17,7 @@ export default function Home({params}) {
 
       
       track.animate({
-        transform: `translate(${scrollPercentage}%, -50%)`
+        transform: `translate(${scrollPercentage}%, -40%)`
       }, { duration: 1800, fill: "forwards"});
       for (const image of track.getElementsByClassName("image")) {
         image.animate({
@@ -70,16 +65,11 @@ export default function Home({params}) {
       <div id='div-2'>
         <p id='div-2-header' className='fade-in'>Projects in our database</p>
         <div id="image-track" draggable={false}>
-          <img className="image" src="cats/cat1.png" draggable="false"/>
-          <img className="image" src="cats/cat2.png" draggable="false"/>
-          <img className="image" src="cats/cat3.png" draggable="false"/>
-          <img className="image" src="cats/cat4.png" draggable="false"/>
-          <img className="image" src="cats/cat5.png" draggable="false"/>
-          <img className="image" src="cats/cat6.png" draggable="false"/>
-          <img className="image" src="cats/cat7.png" draggable="false"/>
-          <img className="image" src="cats/cat8.png" draggable="false"/>
-          <img className="image" src="cats/cat9.png" draggable="false"/>
-          <img className="image" src="cats/cat10.png" draggable="false"/>
+          <img className="image" src="imagetrack/img1.png" draggable="false"/>
+          <img className="image" src="imagetrack/img2.png" draggable="false"/>
+          <img className="image" src="imagetrack/img3.png" draggable="false"/>
+          <img className="image" src="imagetrack/img4.png" draggable="false"/>
+          <img className="image" src="imagetrack/img5.png" draggable="false"/>
         </div>
       </div>
       
