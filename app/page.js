@@ -2,34 +2,6 @@
 import './styles.css'
 import { useEffect, useRef } from "react";
 
-export function AutoResizeFont(minFontSize, maxFontSize) {
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const elem = ref.current;
-    if (!elem) return;
-
-    const resizeText = () => {
-      const container = elem.parentElement;
-      if (!container) return;
-
-      let fontSize = maxFontSize;
-      elem.style.fontSize = `${fontSize}vmin`;
-
-      while (elem.scrollWidth > container.offsetWidth && fontSize > minFontSize) {
-        fontSize = fontSize - 0.1;
-        elem.style.fontSize = `${fontSize}vmin`;
-      }
-    };
-
-    resizeText();
-    window.addEventListener('resize', resizeText);
-    return () => window.removeEventListener('resize', resizeText);
-  }, [minFontSize, maxFontSize]);
-
-  return ref;
-}
-
 export default function Home() {
   useEffect(() => {
     // Handle Scrolling for Scrolling Pane
@@ -80,6 +52,34 @@ export default function Home() {
     };
   }, []);
 
+  function AutoResizeFont(minFontSize, maxFontSize) {
+    const ref = useRef(null);
+  
+    useEffect(() => {
+      const elem = ref.current;
+      if (!elem) return;
+  
+      const resizeText = () => {
+        const container = elem.parentElement;
+        if (!container) return;
+  
+        let fontSize = maxFontSize;
+        elem.style.fontSize = `${fontSize}vmin`;
+  
+        while (elem.scrollWidth > container.offsetWidth && fontSize > minFontSize) {
+          fontSize = fontSize - 0.1;
+          elem.style.fontSize = `${fontSize}vmin`;
+        }
+      };
+  
+      resizeText();
+      window.addEventListener('resize', resizeText);
+      return () => window.removeEventListener('resize', resizeText);
+    }, [minFontSize, maxFontSize]);
+  
+    return ref;
+  }
+  
   const textRef = AutoResizeFont(6, 12.5);
   return (
     <main>
