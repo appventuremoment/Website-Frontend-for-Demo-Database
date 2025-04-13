@@ -1,6 +1,34 @@
 'use client';
 import './styles.css'
-import { use, useEffect } from "react";
+import { use, useEffect, useRef } from "react";
+
+export function AutoResizeFont(minFontSize, maxFontSize) {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const elem = ref.current;
+    if (!elem) return;
+
+    const resizeText = () => {
+      const container = elem.parentElement;
+      if (!container) return;
+
+      let fontSize = maxFontSize;
+      elem.style.fontSize = `${fontSize}vmin`;
+
+      while (elem.scrollWidth > container.offsetWidth && fontSize > minFontSize) {
+        fontSize = fontSize - 0.1;
+        elem.style.fontSize = `${fontSize}vmin`;
+      }
+    };
+
+    resizeText();
+    window.addEventListener('resize', resizeText);
+    return () => window.removeEventListener('resize', resizeText);
+  }, [minFontSize, maxFontSize]);
+
+  return ref;
+}
 
 export default function Home({params}) {
   useEffect(() => {
@@ -45,7 +73,6 @@ export default function Home({params}) {
     );
 
     fadeInElements.forEach((el) => observer.observe(el));
-
     
     return () => {
       window.onscroll = null;
@@ -53,11 +80,12 @@ export default function Home({params}) {
     };
   }, []);
 
+  const textRef = AutoResizeFont(6, 12.5);
   const unwrappedParams = use(params);
   return (
     <main>
       <div id='div-1'>
-      <b id='welcome-msg' className='fade-in'>Hello {unwrappedParams.displayname}. Welcome to</b>
+      <b id='welcome-msg' ref={textRef} className='fade-in'>Hello {unwrappedParams.displayname}. Welcome to</b>
       <b id='front-logo' className='fade-in'>Project DB</b>
       <p id='tagline' className='fade-in'>We make tracking your projects easy</p>
       </div>
@@ -74,14 +102,14 @@ export default function Home({params}) {
       </div>
       
       <div id='about-us-div'>
-        <b id='section-header' style={{right: '12.5%'}} className='fade-in'>Who are we?</b>
+        <b id='section-header' style={{right: '20%'}} className='fade-in'>Who are we?</b>
         <p id='section-subtext' style={{right: '7.5%'}} className='fade-in'>Originally focused on storing projects for NUS High, we are now expanding our platform to support schools nationwide, helping organizations manage and share projects more efficiently.</p>
         <img src='who_are_we.png' style={{left: '5%'}} id='info-image' className='fade-in'></img>
       </div>
       <div id='div-4'>
         <img src='why_us.png' style={{right: '5%'}} id='info-image' className='fade-in'></img>
         <b id='section-header' style={{left: '17.5%'}} className='fade-in'>Why us?</b>
-        <p id='section-subtext' style={{left: '2.5%', maxWidth: '96.5vh'}} className='fade-in'>We have worked with over 100 different shelters. Our service is blazingly fast and memory-efficient: with no runtime or garbage collector, it can power performance-critical services, run on embedded devices, and easily integrate with other services.</p>
+        <p id='section-subtext' style={{left: '6.5%'}} className='fade-in'>We have worked with over 100 different shelters. Our service is blazingly fast and memory-efficient: with no runtime or garbage collector, it can power performance-critical services, run on embedded devices, and easily integrate with other services.</p>
       </div>
       <div id="contact-us-div">
         <b id='contact-us-header' className='fade-in'>Contact Us</b>
@@ -92,7 +120,7 @@ export default function Home({params}) {
         <img id='contact-us-icon' className='fade-in' style={{left: '25%', top: '60%'}} src='email_icon.png'></img>
         <p id='contact-us-details' className='fade-in' style={{left: '28.5%', top: '60%'}}>this_is_a_real_email@realmail.com</p>
         <img id='contact-us-icon' className='fade-in' style={{right: '45%', top: '60%'}} src='website_icon.png'></img>
-        <p id='contact-us-details' className='fade-in' style={{left: '56%', top: '60%'}}>http://localhost:3000</p>
+        <p id='contact-us-details' className='fade-in' style={{left: '56%', top: '60%'}}>projectdb.vercel.app</p>
       </div>
   </main>
   );

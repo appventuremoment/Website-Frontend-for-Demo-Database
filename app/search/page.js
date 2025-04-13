@@ -2,8 +2,10 @@ import React from 'react';
 import './styles.css';
 
 const TableContents = () => {
-  const catsdata = [
-    { id: 'h2010049', name: "Example", arrival: "6", gender: "e"}
+  const tempdata = [
+    { id: 'h20100', fname: "Example", lname: "e", year: "6"},
+    { id: 'h20101', fname: "Example", lname: "e", year: "6"},
+    { id: 'h20102', fname: "Example", lname: "e", year: "6"}
   ];
 
   return (
@@ -26,16 +28,16 @@ const TableContents = () => {
             </tr>
           </thead>
           <tbody>
-            {catsdata.map((cat, index) => (
+            {tempdata.map((student, index) => (
               // TODO: Chip IDs will not be simple numbers + Searching will change the IDs, change zebra colouring to be independant of data in table when functionalities work
               <tr 
-                key={cat.id}
+                key={student.id}
                 id={index % 2 === 0 ? 'row-even' : 'row-odd'}
               >
-                <td>{cat.id}</td>
-                <td>{cat.name}</td>
-                <td><span style={{ backgroundColor: "yellow" }}>Nam</span>{cat.gender}</td>
-                <td><span style={{ backgroundColor: "yellow" }}>{cat.arrival}</span></td>
+                <td>{student.id}</td>
+                <td>{student.fname}</td>
+                <td><span style={{ backgroundColor: "yellow" }}>Nam</span>{student.lname}</td>
+                <td><span style={{ backgroundColor: "yellow" }}>{student.year}</span></td>
               </tr>
             ))}
           </tbody>

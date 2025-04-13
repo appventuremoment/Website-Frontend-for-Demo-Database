@@ -56,7 +56,7 @@ function DropdownMenu({closeDropdown}){
     return(
         <div id="dropdown">
             <LoginDropdownItem leftIcon="register_icon.png" subdomain="login">Login</LoginDropdownItem>
-            <hr style={{ border: "none", height: "1.5px", backgroundColor: "#505356", margin: "10px auto"}}></hr>
+            <hr style={{ border: "none", height: "0.05vmin", backgroundColor: "#505356", margin: "0.1vmin auto"}}></hr>
             <DropdownItem leftIcon="about_us_icon.png" subdomain="/#about-us-div" closeDropdown={closeDropdown}>About Us</DropdownItem>
             <DropdownItem leftIcon="contact_us_icon.png" subdomain="/#contact-us-div" closeDropdown={closeDropdown}>Contact Us</DropdownItem>
             <DropdownItem leftIcon="references_icon.png" subdomain="references">References</DropdownItem>

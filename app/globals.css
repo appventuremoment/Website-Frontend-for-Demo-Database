@@ -6,7 +6,7 @@
   --primary-colour: #f8f8f8;
   --dark-primary-colour: #5f5f5f;
   --secondary-colour: #fef4d0;
-  --default-font: 'Source Sans Pro', 'noto-serif';
+  --default-font: 'Merriweather, Noto Serif';
   --alternative-font: 'FF DIN';
 }
 
@@ -28,7 +28,14 @@ body {
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Merriweather, Noto Serif";
+  src: url("/fonts/Merriweather-regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 input, input[type=email], input[type=text], input[type=password] {
   font-family: "FF DIN";
-  letter-spacing: -0.5px;
+  letter-spacing: -0.05vw;
 }

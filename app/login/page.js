@@ -38,7 +38,7 @@ export default function Home() {
     <div id='background'>
       <form id='form' action="" type="GET">
         <b id='logo'>Project DB</b>
-        <input id='input-field' type='email' placeholder='Enter email' style={{ top: "30%" }}></input>
+        <input id='input-field' type='text' placeholder='Enter username' style={{ top: "30%" }}></input>
         <input id='input-field' type={type} value={password} onChange={(e) => setPWFieldText(e.target.value)} placeholder='Enter password' style={{ top: "47.5%", paddingRight: "7.5%" }}></input>
         <img src={icon} id='eye-icon' onClick={eyeIconHandleClick} onMouseEnter={handleIconMouseEnter} onMouseLeave={handleIconMouseLeave}></img>
         <div id='hyperlink-container'>

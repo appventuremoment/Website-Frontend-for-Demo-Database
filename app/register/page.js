@@ -66,7 +66,7 @@ const handleIcon2MouseLeave = () => {
           <a id='hyperlink' href="/login">Back to Login Page</a>
         </div>
         <b id='logo'>Project DB</b>
-        <input id='input-field' type='email' placeholder='Email' style={{ top: "40%" }}></input>
+        <input id='input-field' type='text' placeholder='Username' style={{ top: "40%" }}></input>
         <input id='input-field' type={type1} value={password1} onChange={(e) => setPWField1Text(e.target.value)} placeholder='Password' style={{ top: "51.5%", paddingRight: "7.5%" }}></input>
         <img src={icon1} id='eye-icon' onClick={eyeIcon1HandleClick} onMouseEnter={handleIcon1MouseEnter} onMouseLeave={handleIcon1MouseLeave} style={{ top: '51.5%' }}></img>
         <input id='input-field' type={type2} value={password2} onChange={(e) => setPWField2Text(e.target.value)} placeholder='Re-enter password' style={{ top: "63%", paddingRight: "7.5%" }}></input>
