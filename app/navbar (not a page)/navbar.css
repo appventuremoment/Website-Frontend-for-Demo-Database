@@ -4,10 +4,10 @@
 
 :root {
     --nav-bg: #232627;
-    --nav-size: 8.95vmin;
+    --nav-size: 8vmin;
     --nav-text-color: #dadce1;
     --nav-border: 0.01vmin solid #474a4d;
-    --nav-border-radius: 0.08vmin;
+    --nav-border-radius: 1vmin;
     --nav-speed: 500;
     --nav-default-font: 'Source Sans Pro', noto-serif;
 }
@@ -83,9 +83,9 @@ a {
 /* Dropdown Menu Styles */
 #dropdown {
     position: absolute;
-    top: 8.75vmin;
+    top: 8vmin;
     right: 1.5vmax;
-    width: 22.5vmax;
+    width: 20vmax;
     background-color: var(--nav-bg);
     border: var(--nav-border);
     border-radius: var(--nav-border-radius);
@@ -96,13 +96,13 @@ a {
 }
 
 #menu-item {
-    height: 7.75vh;
+    height: 7vh;
     display: flex;
     align-items: center;
     border-radius: var(--nav-border-radius);
     transition: #000000 var(--nav-speed);
     padding: 0.5rem;
-    font-size: 2.25vmin;
+    font-size: 2vmin;
 }
 
 #menu-item:hover {
@@ -120,13 +120,13 @@ a {
 
 /* Login Item Styles */
 #login-item {
-    height: 15.7vh;
+    height: 13.5vh;
     display: flex;
     align-items: center;
     border-radius: var(--nav-border-radius);
     transition: #000000 var(--nav-speed);
     padding: 0.2rem;
-    font-size: 4vmin;
+    font-size: 3vmin;
 }
 
 #login-item:hover {
@@ -135,8 +135,8 @@ a {
 
   
 #login-item #icon-button {
-    width: 11vmin;
-    height: 11vmin;
+    width: 9.5vmin;
+    height: 9.5vmin;
     margin-right: 1vw;
 }
 
