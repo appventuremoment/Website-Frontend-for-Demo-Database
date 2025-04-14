@@ -34,7 +34,8 @@ yarn-error.log*
 .env
 .env*
 
-logindatabase.ipynb
+# Setting up of datavase locally and sending it to Railway
+RailwaySetup.ipynb
 
 # vercel
 .vercel

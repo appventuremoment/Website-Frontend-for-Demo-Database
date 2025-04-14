@@ -1,3 +1,4 @@
+'use server'
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import bcrypt from 'bcryptjs'
@@ -6,7 +7,7 @@ export async function POST(req: Request) {
   const { email, password, username } = await req.json()
 
   if (!email || !password || !username) {
-    return NextResponse.json({ error: password }, { status: 400 })
+    return NextResponse.json({ error: "Missing required fields" }, { status: 400 })
   }
 
   const existingUser = await prisma.accounts.findUnique({ where: { email } })
