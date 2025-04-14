@@ -20,13 +20,13 @@
     background-image: url("/home1.png");
     background-size: cover;
     display: flex;
+    text-align: center;
     justify-content: center;
     user-select: none;
 }
 
 #front-logo{
     position: absolute;
-    top: 40%;
     font-size: 12.5vmin;
     white-space: nowrap;
     color: var(--secondary-colour);

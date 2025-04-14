@@ -1,24 +1,47 @@
 # Website Frontend for Demo Database
  because a different repo was more convenient
 
-These instructions assume that you are using VScode to run this project
+Hosted on projectdb.vercel.app
 
-Change directory to where the project folder is located using 
-```
-cd ./PATH/TO/FOLDER
-```
-Run 
+## TODO list
+- data validation for registration and login
+- change table logic and values in tables
+- ui to display tables and sort/filter
+- backend for sorting
+- ui to add and delete
+- fancy dropdown for tables
+
+## Input Field Requirement Checks
+all fields (except password) none of that special chars, only alphanumeric and _
+
+username between 3 to 24 characters
+email must have @ and .something
+
+password at least 8 characters
+password must have 1 uppercase
+password must have 1 lower case
+password must have 1 digit
+must have special characters !@#$%^&*
+
+## These instructions assume that you are using VScode to run this project locally
+1. Install MySQL from https://dev.mysql.com/downloads/installer/
+2. Run all cells in logindatabase.ipynb
+3. Open a terminal using Ctrl + Shift + `. Run 
 ```
 npm install
 ``` 
-This should install all dependancies needed. Run 
+4. This should install all dependancies needed. Run 
 ```
 node -v
 ```
 to check if node is recognised If not, follow the instructions on https://hackmd.io/@hm222vx/AddNodeJSPath.
 
-Lastly, run 
+5. Lastly, run 
 ```
 npm run dev
 ```
-to start the server. It should be located on http://localhost:3000 and will also be displayed on the terminal. In the event that node is not recognised in the powershell terminal specifically, search online for the command to manually add it to powershell.
+to start the server. It should be located on http://localhost:3000 and will also be displayed on the terminal. In the event that node is not recognised in the powershell terminal specifically, the following command should add it to the PATH for all subsequent powershell sessions
+```
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\nodejs\", [EnvironmentVariableTarget]::User)
+```
+There is a test account with credentials Username: test, Email: test@testmail.com, Password: test

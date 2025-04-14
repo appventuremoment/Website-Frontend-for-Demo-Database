@@ -1,8 +1,30 @@
 'use client';
 import './styles.css'
-import { useEffect, useRef } from "react";
+import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
+import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
+  const router = useRouter();
+  const [frontLogoPlacement, setFrontLogoPlacement] = useState('40%');
+  const [frontLogoText, setFrontLogoText] = useState('Welcome to Project DB');
+  const { data: session, status } = useSession();
+
+  // Handle Session ID rerouting
+  useEffect(() => {
+    if (status === 'loading') return; // Wait for auth token to load
+    if (status === 'authenticated'){
+      setFrontLogoText(  <>
+        <span>Hello {session.user.name}. Welcome to</span>
+        <br/>
+        <span>Project DB</span>
+      </>
+      );
+      setFrontLogoPlacement("25%");
+    }
+  }, [status, session, router])
+
+
   useEffect(() => {
     // Handle Scrolling for Scrolling Pane
     const track = document.getElementById("image-track");
@@ -70,6 +92,8 @@ export default function Home() {
           fontSize = fontSize - 0.1;
           elem.style.fontSize = `${fontSize}vmin`;
         }
+        fontSize = fontSize - 0.5;
+        elem.style.fontSize = `${fontSize}vmin`;
       };
   
       resizeText();
@@ -84,7 +108,7 @@ export default function Home() {
   return (
     <main>
       <div id='div-1'>
-      <b id='front-logo' ref={textRef} className='fade-in'>Welcome to Project DB</b>
+      <b id='front-logo' style={{ top: frontLogoPlacement }} ref={textRef} className='fade-in'>{frontLogoText}</b>
       <p id='tagline' className='fade-in'>We make tracking your projects easy</p>
       </div>
 

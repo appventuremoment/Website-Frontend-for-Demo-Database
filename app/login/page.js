@@ -1,12 +1,37 @@
 'use client';
 import './styles.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { signIn } from 'next-auth/react'
+import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 
 export default function Home() {
-  const handleSubmit = () => {
-    alert("Congrats, you have logged in! This goes no where for now..");
-  }
+  const router = useRouter();
+  const { data: session, status } = useSession();
 
+  // Handle Session ID rerouting
+  useEffect(() => {
+    if (status === 'loading') return; // Wait for auth token to load
+    if (status === 'authenticated') router.push('/');
+  }, [status, session, router])
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    const res = await signIn('credentials', {
+      redirect: false,
+      email,
+      password
+    });
+  
+    if (res.ok) {
+      router.push('/');
+    } else {
+      alert('Invalid email or password.')
+    }
+  };
+  
+  const [email, setEmailFieldText] = useState("");
   const [password, setPWFieldText] = useState("");
   const [type, setPWFieldType] = useState('password');
   const [icon, toggleIcon] = useState('eye_disabled_icon.png');
@@ -36,17 +61,16 @@ export default function Home() {
 
   return (
     <div id='background'>
-      <form id='form' action="" type="GET">
+      <form id='form' onSubmit={handleSubmit}>
         <b id='logo'>Project DB</b>
-        <input id='input-field' type='text' placeholder='Enter username' style={{ top: "30%" }}></input>
+        <input id='input-field' type='email' value={email} onChange={(e) => setEmailFieldText(e.target.value)} placeholder='Enter email' style={{ top: "30%" }}></input>
         <input id='input-field' type={type} value={password} onChange={(e) => setPWFieldText(e.target.value)} placeholder='Enter password' style={{ top: "47.5%", paddingRight: "7.5%" }}></input>
         <img src={icon} id='eye-icon' onClick={eyeIconHandleClick} onMouseEnter={handleIconMouseEnter} onMouseLeave={handleIconMouseLeave}></img>
         <div id='hyperlink-container'>
           <a id='hyperlink' href="/register">Register now</a>
           <a id='hyperlink' href="/forgot_password" style={{marginLeft: "auto"}}>Forgot password?</a>
         </div>
-        {/* TODO: change to onSubmit once functionalities in works */}
-        <button id='login-button' onClick={handleSubmit}>Login</button>
+        <button id='login-button'>Login</button>
       </form>
     </div>
   );
