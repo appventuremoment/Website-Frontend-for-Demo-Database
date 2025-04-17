@@ -8,7 +8,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
       <SessionProvider>
-        <main>
+        <main style={{ paddingTop: "8vmin" }}> {/* nav bar size*/}
           <NavBar/>
           {children}
         </main>

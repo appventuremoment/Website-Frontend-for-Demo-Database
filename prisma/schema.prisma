@@ -13,3 +13,8 @@ model accounts {
   password String @db.VarChar(250)
   email    String @unique(map: "email") @db.VarChar(100)
 }
+
+model test {
+  id BigInt  @id @unique(map: "id") @default(autoincrement()) @db.UnsignedBigInt
+  tt String? @db.Text
+}

@@ -8,7 +8,8 @@
     --nav-text-color: #dadce1;
     --nav-border: 0.01vmin solid #474a4d;
     --nav-border-radius: 1vmin;
-    --nav-speed: 500;
+    --dropdown-speed: 500ms;
+    --nav-speed: 300ms;
     --nav-default-font: 'Source Sans Pro', noto-serif;
 }
 
@@ -36,13 +37,14 @@ a {
 
 /* Navbar Styles */
 #nav-bar{
-    position: sticky;
+    position: fixed;
     top: 0;
     height: var(--nav-size);
+    width: 100vw;
     background-color: var(--nav-bg);
     padding: 0 1vw;
-    border-bottom: var(--nav-border);
     z-index: 1000;
+    transition: all var(--nav-speed) ease-in-out;
 }
   
 #navbar-nav{
@@ -91,7 +93,7 @@ a {
     border-radius: var(--nav-border-radius);
     padding: 1rem;
     overflow: hidden;
-    transition: height var(--nav-speed) ease;
+    transition: height var(--dropdown-speed) ease;
     z-index: 1001;
 }
 
@@ -100,7 +102,7 @@ a {
     display: flex;
     align-items: center;
     border-radius: var(--nav-border-radius);
-    transition: #000000 var(--nav-speed);
+    transition: #000000 var(--dropdown-speed);
     padding: 0.5rem;
     font-size: 2vmin;
 }
@@ -124,7 +126,7 @@ a {
     display: flex;
     align-items: center;
     border-radius: var(--nav-border-radius);
-    transition: #000000 var(--nav-speed);
+    transition: #000000 var(--dropdown-speed);
     padding: 0.2rem;
     font-size: 3vmin;
 }
@@ -142,4 +144,13 @@ a {
 
 #login-item #icon-button:hover {
     filter: none;
+}
+
+/* Nav Scroll Behaviour */
+.scroll-down {
+    transform: translate3d(0, -100%, 0);
+}
+
+.scroll-up{
+    filter: drop-shadow(0 -10px 20px rgb(0, 0, 0));
 }

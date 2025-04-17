@@ -5,7 +5,7 @@
 .fade-in {
     opacity: var(--fade-in-start-opacity);
     transform: translateY(10%);
-    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .fade-in-visible {
@@ -39,45 +39,7 @@
     color: var(--secondary-colour);
 }
 
-/* Div 2 Styles */
-#div-2{
-    overflow-x: hidden;
-    position: relative;
-    width: 100vw;
-    height: 100vmin;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    user-select: none;
-}
-
-#div-2-header{
-    position: absolute;
-    top: 5%;
-    font-size: 5.5vmin;
-}
-
-#image-track{
-    display: flex;
-    gap: 2vmin;
-    user-select: none;
-    position: absolute;
-    top: 50%;
-    left: 5%;
-    transform: translate(0%, -40%);
-    height: max-content;
-    width: max-content;
-}
-
-#image-track > .image{
-    overflow-x: hidden;
-    width: 35vmax;
-    height: 75vmin;
-    object-fit: cover;
-    object-position: 100% 50%;
-}
-
-/* About Us Div (Div 3) Styles */
+/* About Us Div (Div 2) Styles */
 #about-us-div{
     position: relative;
     width: 100vw;
@@ -86,7 +48,6 @@
     display: flex;
     justify-content: center;
     user-select: none;
-    background-color: var(--secondary-colour);
 }
 
 #info-image{
@@ -112,6 +73,44 @@
     font-size: 3.1vmin;
 }
 
+/* Div 3 Styles */
+#div-3{
+    overflow-x: hidden;
+    position: relative;
+    width: 100vw;
+    height: 400vmin;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    user-select: none;
+    background-color: var(--secondary-colour);
+}
+
+#div-3-header{
+    position: absolute;
+    top: 10vh;
+    font-size: 5.5vmin;
+}
+
+#image-track{
+    display: flex;
+    gap: 2vmin;
+    user-select: none;
+    position: absolute;
+    top: 25vh;
+    left: 5vw;
+    transform: translate(0vw, 0%);
+    height: max-content;
+    width: max-content;
+}
+
+#image-track > .image{
+    overflow-x: hidden;
+    width: 25vmax;
+    height: 70vmin;
+    object-fit: cover;
+    object-position: 100% 50%;
+}
 
 /* Div 4 Styles */
 #div-4{
@@ -123,6 +122,7 @@
     justify-content: center;
     user-select: none;
 }
+
 
 /* Contact Us Div (Div 5) Styles */
 #contact-us-div{

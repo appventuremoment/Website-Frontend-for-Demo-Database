@@ -1,12 +1,24 @@
+'use client';
 import React from 'react';
 import './styles.css';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 
-const TableContents = () => {
+export default function Home() {
+  const router = useRouter();
+  const { data: session, status } = useSession();
   const tempdata = [
     { id: 'h20100', fname: "Example", lname: "e", year: "6"},
     { id: 'h20101', fname: "Example", lname: "e", year: "6"},
     { id: 'h20102', fname: "Example", lname: "e", year: "6"}
   ];
+
+  // Handle Session ID rerouting
+  useEffect(() => {
+    if (status === 'loading') return; // Wait for auth token to load
+    if (status !== 'authenticated') router.push('/login');
+  }, [status, session, router])
 
   return (
     <div id="background">
@@ -59,6 +71,4 @@ const TableContents = () => {
       </div>
     </div>
   );
-};
-
-export default TableContents;
+}
