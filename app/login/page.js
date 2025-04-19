@@ -4,9 +4,11 @@ import { useEffect, useState } from 'react';
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
+import { useAlert } from '@components/CustomAlert';
 
 export default function Home() {
   const router = useRouter();
+  const { showAlert } = useAlert();
   const { data: session, status } = useSession();
 
   // Handle Session ID rerouting
@@ -17,17 +19,18 @@ export default function Home() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+    if (!email || !password) {showAlert("Missing required fields"); return;}
+
     const res = await signIn('credentials', {
       redirect: false,
       email,
-      password
+      password,
     });
   
     if (res.ok) {
       router.push('/');
     } else {
-      alert('Invalid email or password.')
+      showAlert('Invalid email or password')
     }
   };
   
@@ -62,9 +65,11 @@ export default function Home() {
   return (
     <div id='background'>
       <form id='form' onSubmit={handleSubmit}>
-        <b id='logo'>Project DB</b>
-        <input id='input-field' type='email' value={email} onChange={(e) => setEmailFieldText(e.target.value)} placeholder='Enter email' style={{ top: "30%" }}></input>
-        <input id='input-field' type={type} value={password} onChange={(e) => setPWFieldText(e.target.value)} placeholder='Enter password' style={{ top: "47.5%", paddingRight: "7.5%" }}></input>
+        <b id='logo' style={{ userSelect: 'none' }}>Project DB</b>
+        <p id='p-tag' style={{ top: '29.5%' }}>Email</p>
+        <input id='input-field' type='email' value={email} onChange={(e) => setEmailFieldText(e.target.value)} style={{ top: "35%" }}></input>
+        <p id='p-tag' style={{ top: '46%' }}>Password</p>
+        <input id='input-field' type={type} value={password} onChange={(e) => setPWFieldText(e.target.value)} style={{ top: "51.5%", paddingRight: "7.5%" }}></input>
         <img src={icon} id='eye-icon' onClick={eyeIconHandleClick} onMouseEnter={handleIconMouseEnter} onMouseLeave={handleIconMouseLeave}></img>
         <div id='hyperlink-container'>
           <a id='hyperlink' href="/register">Register now</a>

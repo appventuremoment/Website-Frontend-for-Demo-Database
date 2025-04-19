@@ -108,8 +108,8 @@ function DropdownMenu({closeDropdown}){
         <div id="dropdown">
             <LoginDropdownItem leftIcon="register_icon.png" subdomain={loginSubdomain}>{loginElem}</LoginDropdownItem>
             <hr style={{ border: "none", height: "0.05vmin", backgroundColor: "#505356", margin: "1vh auto"}}></hr>
-            <DropdownItem leftIcon="about_us_icon.png" subdomain="/#about-us-div" closeDropdown={closeDropdown}>About Us</DropdownItem>
-            <DropdownItem leftIcon="contact_us_icon.png" subdomain="/#contact-us-div" closeDropdown={closeDropdown}>Contact Us</DropdownItem>
+            <DropdownItem leftIcon="about_us_icon.png" subdomain="#about-us-div" closeDropdown={closeDropdown}>About Us</DropdownItem>
+            <DropdownItem leftIcon="contact_us_icon.png" subdomain="#contact-us-div" closeDropdown={closeDropdown}>Contact Us</DropdownItem>
             <DropdownItem leftIcon="references_icon.png" subdomain="references">References</DropdownItem>
         </div>
     );

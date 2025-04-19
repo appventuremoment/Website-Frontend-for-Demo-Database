@@ -18,7 +18,9 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@lib/*": ["./lib/*"],
+      "@components/*": ["./app/components/*"]
     },
     "baseUrl": ".",
     "plugins": [

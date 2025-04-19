@@ -3,9 +3,12 @@ import './styles.css';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react';
+import { useAlert } from '@components/CustomAlert';
+import { checkValidEmail, checkValidUserLength, checkValidPassword } from '@lib/datavalidation.ts';
 
 export default function Home() {
   const router = useRouter()
+  const { showAlert } = useAlert();
   const { data: session, status } = useSession();
 
   // Handle Session ID rerouting
@@ -17,21 +20,27 @@ export default function Home() {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    if (password1 !== password2) return;
-    const res = await fetch('/api/register', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password: password1, username }),
-    })
-    
-
-    const data = await res.json()
-
-    if (res.ok) {
-      alert(data.message)
-      router.push('/login')
-    } else {
-      alert(data.error)
+    if (!checkValidUserLength(username)) showAlert("Username must be between 3-40 characters")
+    else if (!checkValidEmail(email)) showAlert("Invalid email, try again")
+    else if (!checkValidPassword(password1)){
+      if (password1.length < 8) showAlert("Password must be at least 8 characters long")
+      else showAlert("Password must include a number, an uppercase and a lowercase letter")
+    }
+    else if (password1 !== password2) showAlert("Passwords do not match")
+    else{
+      const res = await fetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password: password1, username }),
+      })
+      
+      const data = await res.json()
+      if (res.ok) {
+        showAlert(data.message)
+        router.push('/login')
+      } else {
+        showAlert(data.error)
+      }
     }
   }
 
@@ -95,13 +104,17 @@ const handleIcon2MouseLeave = () => {
         <div id='hyperlink-container'>
           <a id='hyperlink' href="/login">Back to Login Page</a>
         </div>
-        <b id='logo'>Project DB</b>
-        <input id='input-field' type='text' value={username} onChange={(e) => setUsernameField1Text(e.target.value)} placeholder='Enter username' style={{ top: "35%" }}></input>
-        <input id='input-field' type='email' value={email} onChange={(e) => setEmailFieldText(e.target.value)} placeholder='Email' style={{ top: "46.5%" }}></input>
-        <input id='input-field' type={type1} value={password1} onChange={(e) => setPWField1Text(e.target.value)} placeholder='Password' style={{ top: "58%", paddingRight: "7.5%" }}></input>
-        <img src={icon1} id='eye-icon' onClick={eyeIcon1HandleClick} onMouseEnter={handleIcon1MouseEnter} onMouseLeave={handleIcon1MouseLeave} style={{ top: '58%' }}></img>
-        <input id='input-field' type={type2} value={password2} onChange={(e) => setPWField2Text(e.target.value)} placeholder='Re-enter password' style={{ top: "69.5%", paddingRight: "7.5%" }}></input>
-        <img src={icon2} id='eye-icon' onClick={eyeIcon2HandleClick} onMouseEnter={handleIcon2MouseEnter} onMouseLeave={handleIcon2MouseLeave} style={{ top: '69.5%' }}></img>
+        <b id='logo' style={{ userSelect: 'none' }}>Project DB</b>
+        <p id='p-tag' style={{ top: '29.5%' }}>Username</p>
+        <input id='input-field' type='text' value={username} onChange={(e) => setUsernameField1Text(e.target.value)} style={{ top: "33.5%" }}></input>
+        <p id='p-tag' style={{ top: '42.5%' }}>Email</p>
+        <input id='input-field' type='email' value={email} onChange={(e) => setEmailFieldText(e.target.value)} style={{ top: "46.5%" }}></input>
+        <p id='p-tag' style={{ top: '55.5%' }}>Password</p>
+        <input id='input-field' type={type1} value={password1} onChange={(e) => setPWField1Text(e.target.value)} style={{ top: "59.5%", paddingRight: "7.5%" }}></input>
+        <img src={icon1} id='eye-icon' onClick={eyeIcon1HandleClick} onMouseEnter={handleIcon1MouseEnter} onMouseLeave={handleIcon1MouseLeave} style={{ top: '59.5%' }}></img>
+        <p id='p-tag' style={{ top: '68.5%' }}>Re-enter password</p>
+        <input id='input-field' type={type2} value={password2} onChange={(e) => setPWField2Text(e.target.value)} style={{ top: "72.5%", paddingRight: "7.5%" }}></input>
+        <img src={icon2} id='eye-icon' onClick={eyeIcon2HandleClick} onMouseEnter={handleIcon2MouseEnter} onMouseLeave={handleIcon2MouseLeave} style={{ top: '72.5%' }}></img>
         <button id='register-button'>Register</button>
       </form>
     </div>

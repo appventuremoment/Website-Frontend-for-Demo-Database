@@ -17,24 +17,26 @@
 #div-1 {
     width: 100vw;
     height: 100vh;
-    background-image: url("/home1.png");
+    background-image: url("/home.png");
     background-size: cover;
     display: flex;
+    flex-direction: column;
     text-align: center;
+    align-items: center;
     justify-content: center;
     user-select: none;
+    gap: 5vmin;
 }
 
 #front-logo{
-    position: absolute;
     font-size: 12.5vmin;
+    max-width: 100vw;
+    text-overflow: ellipsis;
     white-space: nowrap;
     color: var(--secondary-colour);
 }
 
 #tagline{
-    position: absolute;
-    top: 60%;
     font-size: 5.5vmin;
     color: var(--secondary-colour);
 }
@@ -47,7 +49,6 @@
     background-size: cover;
     display: flex;
     justify-content: center;
-    user-select: none;
 }
 
 #info-image{
@@ -55,14 +56,17 @@
     top: 20%;
     width: 40vw;
     height: 60vmin;
+    user-select: none;
 }
 
 #section-header{
     position: absolute;
     top: 20%;
-    max-width: 22.5vw;
+    width: 42.5vw;
+    max-width: 42.5vw;
     white-space: nowrap;
-    font-size: 10.6vmin;
+    text-align: center;
+    font-size: 10.5vmin;
 }
 #section-subtext{
     position: absolute;
@@ -78,11 +82,10 @@
     overflow-x: hidden;
     position: relative;
     width: 100vw;
-    height: 400vmin;
+    height: 400vh;
     background-size: cover;
     display: flex;
     justify-content: center;
-    user-select: none;
     background-color: var(--secondary-colour);
 }
 
@@ -95,13 +98,13 @@
 #image-track{
     display: flex;
     gap: 2vmin;
-    user-select: none;
     position: absolute;
     top: 25vh;
     left: 5vw;
     transform: translate(0vw, 0%);
     height: max-content;
     width: max-content;
+    user-select: none;
 }
 
 #image-track > .image{
@@ -110,6 +113,7 @@
     height: 70vmin;
     object-fit: cover;
     object-position: 100% 50%;
+    user-select: none;
 }
 
 /* Div 4 Styles */
@@ -120,7 +124,6 @@
     background-size: cover;
     display: flex;
     justify-content: center;
-    user-select: none;
 }
 
 
@@ -132,7 +135,6 @@
     background-size: cover;
     display: flex;
     justify-content: center;
-    user-select: none;
     background-color: var(--dark-primary-colour);
     color: var(--primary-colour);
 }
@@ -141,6 +143,7 @@
     position: absolute;
     top: 5%;
     font-size: 6vmin;
+    user-select: none;
 }
 
 #contact-us-icon{
@@ -148,6 +151,7 @@
     width: 5.5vmin;
     height: 5.5vmin;
     align-items: center;
+    user-select: none;
 }
 
 #contact-us-details{

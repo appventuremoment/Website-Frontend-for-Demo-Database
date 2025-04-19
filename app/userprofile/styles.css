@@ -1,6 +1,141 @@
-#background{
+#outer-div{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    font-family: var(--alternative-font);
+}
+
+/* Profile Section */
+#profile-page{
+    position: relative;
+    top: 2.5vmin;
+    width: 15vw;
+    max-height: 100vh;
+}
+
+#profile-icon{
+    width: 100%;
+    border-radius: 50%;
+    padding: 0.3vmin;
+    margin: 0.02vmin;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
+
+#profile-p{
+    font-size: 1.75vmin;
+    margin-top: -1vmin;
+    padding-left: 0.5vw;
+}
+
+#edit-profile-button{
+    background-color: #c8c4bc;
+    position: relative;
+    left: 2.5%;
+    width: 95%;
+    padding: 0.25vmin 1vmin;
+    border: 0.1vmin solid #9c958c;
+    border-radius: 0.5vmin;
+    color: black;
+    font-size: 1.25vmin;
+    user-select: none;
+}
+
+#edit-profile-button:hover{
+    filter: brightness(0.9);
+    cursor: pointer;
+}
+
+#input{
+    position: relative;
+    font-size: 1.25vmin;
+    height: fit-content;
+    border: 0.1vmin solid #c4c4c4;
+    border-radius: 0.6vmin;
+    padding: 0.25vmin 0.60vmin;
+}
+
+#save-cancel-button{
+    position: relative;
+    padding: 0.2vmin 1vmin;
+    border-radius: 0.5vmin;
+    color: white;
+    font-size: 1.25vmin;
+    top: 0.5vh;
+    align-items: center;
+    user-select: none;
+}
+
+#save-cancel-button:hover{
+    filter: brightness(1.2);
+    cursor: pointer;
+}
+
+
+/* Settings Section */
+#settings{
+    position: relative;
+    top: 2.5vmin;
+    width: 60vw;
+    max-height: 100vh;
+}
+
+#line-break{
+    border: none;
+    height: 0.05vmin;
+    background-color: #505356;
+    margin-top: 0.25vh;
+    margin-bottom: 1vh;
+}
+
+#update-password-button{
+    display: block;
+    position: relative;
+    background-color: #c8c4bc;
+    border: 0.1vmin solid #9c958c;
+    color: black;
+    padding: 0.2vmin 1vmin;
+    border-radius: 0.5vmin;
+    font-size: 1.25vmin;
+    align-items: center;
+    user-select: none;
+}
+
+#update-password-button:hover{
+    filter: brightness(0.9);
+    cursor: pointer;
+}
+
+#error-popup{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 0.25vmin;
+    background-color: #f8f8f8;
+    color: #1e183d;
+    font-size: 1vmin;
+    padding: 0.5vmin;
+    border: 0.1vmin solid red;
+    border-radius: 0.5vmin;
+    z-index: 10;
+    width: 30%;
+}
+
+#sign-out-button{
+    display: block;
+    position: relative;
+    background-color: #c8c4bc;
+    border: 0.1vmin solid #9c958c;
+    color: black;
+    padding: 0.2vmin 1vmin;
+    border-radius: 0.5vmin;
+    font-size: 1.25vmin;
+    top: 0.5vh;
+    align-items: center;
+    user-select: none;
+}
+
+#sign-out-button:hover{
+    filter: brightness(0.9);
+    cursor: pointer;
+}  

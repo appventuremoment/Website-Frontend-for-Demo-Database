@@ -4,24 +4,12 @@
 Hosted on projectdb.vercel.app
 
 ## TODO list
-- data validation for registration and login
 - change table logic and values in tables
 - ui to display tables and sort/filter
 - backend for sorting
+
 - ui to add and delete
 - fancy dropdown for tables
-
-## Input Field Requirement Checks
-all fields (except password) none of that special chars, only alphanumeric and _
-
-username between 3 to 24 characters
-email must have @ and .something
-
-password at least 8 characters
-password must have 1 uppercase
-password must have 1 lower case
-password must have 1 digit
-must have special characters !@#$%^&*
 
 ## These instructions assume that you are using VScode to run this project locally
 1. Install MySQL from https://dev.mysql.com/downloads/installer/

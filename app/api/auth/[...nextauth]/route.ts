@@ -10,7 +10,7 @@ const handler = NextAuth({
       name: 'Credentials',
       credentials: {
         email: { label: 'Email', type: 'text' },
-        password: { label: 'Password', type: 'password' },
+        password: { label: 'Password', type: 'password' }
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) return null
@@ -35,18 +35,38 @@ const handler = NextAuth({
     strategy: 'jwt',
   },
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user, trigger, session }) {
       if (user) {
-        token.id = user.id
-        token.name = user.name
-        token.email = user.email
+        token.id = user.id;
+        token.name = user.name;
+        token.email = user.email;
       }
-      return token
+
+      if (trigger === "update") {
+        const dbUser = await prisma.accounts.findUnique({ where: { email: token.email } });
+        token.id = dbUser.id;
+        token.name = dbUser.username;
+        token.email = dbUser.email;
+      }
+
+      // // Refreshes JWT every 5 minutes, not leaving this in because I like keeping my free hosting credits
+      // const refreshInterval = 5 * 60000; // in ms
+      // const shouldRefresh = !token.lastFetched || Date.now() - (token.lastFetched as number) > refreshInterval;
+    
+      // if (shouldRefresh) {
+      //   const dbUser = await prisma.accounts.findUnique({ where: { email: token.email } });
+      //   token.id = dbUser.id;
+      //   token.name = dbUser.username;
+      //   token.email = dbUser.email;
+      //   token.lastFetched = Date.now();
+      // }
+    
+      return token;
     },
     async session({ session, token }) {
-      if (token?.name) session.user.name = token.name
-      if (token?.email) session.user.email = token.email
-      return session
+      session.user.name = token.name;
+      session.user.email = token.email;
+      return session;
     },
   },
   secret: process.env.NEXTAUTH_SECRET,
