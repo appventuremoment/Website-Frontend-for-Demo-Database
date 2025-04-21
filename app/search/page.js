@@ -2,6 +2,7 @@
 import React, { useRef } from 'react';
 import './styles.css';
 import { useState, useEffect } from 'react';
+import { Suspense } from 'react';
 import { useRouter, useSearchParams, notFound } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { useAlert } from '@components/CustomConfirmation';
@@ -23,64 +24,78 @@ export default function Home() {
   switch (tableType) {
     case 'student':
       return (
+        <Suspense fallback={<div>Loading...</div>}>
         <PubAlertProvider>
         <PubAddProvider>
           <StudentsTable />;
         </PubAddProvider>
         </PubAlertProvider>
+        </Suspense>
       );
     case 'project':
       // return <ProjectsTable />;
       return (
+        <Suspense fallback={<div>Loading...</div>}>
         <PubAlertProvider>
         <PubAddProvider>
           <PublicationsTable />
         </PubAddProvider>
         </PubAlertProvider>
+        </Suspense>
       );
     case 'ssef_project':
       // return <SSEFProjectsTable />;
       return (
+        <Suspense fallback={<div>Loading...</div>}>
         <PubAlertProvider>
         <PubAddProvider>
           <PublicationsTable />
         </PubAddProvider>
         </PubAlertProvider>
+        </Suspense>
       );
     case 'overseeing_mentor':
       // return <OverseeingMentorsTable />;
       return (
+        <Suspense fallback={<div>Loading...</div>}>
         <PubAlertProvider>
         <PubAddProvider>
           <PublicationsTable />
         </PubAddProvider>
         </PubAlertProvider>
+        </Suspense>
       );
     case 'internal_mentor':
       // return <InternalMentorsTable />;
       return (
+        <Suspense fallback={<div>Loading...</div>}>
         <PubAlertProvider>
         <PubAddProvider>
           <PublicationsTable />
         </PubAddProvider>
         </PubAlertProvider>
+        </Suspense>
       );
     case 'external_company':
       // return <ExternalCompaniesTable />;
       return (
+        <Suspense fallback={<div>Loading...</div>}>
         <PubAlertProvider>
         <PubAddProvider>
           <PublicationsTable />
         </PubAddProvider>
         </PubAlertProvider>
+        </Suspense>
       );
     case 'publication':
       return (
+        <Suspense fallback={<div>Loading...</div>}>
         <PubAlertProvider>
         <PubAddProvider>
           <PublicationsTable />
         </PubAddProvider>
         </PubAlertProvider>
+        </Suspense>
       );
     default:
       return notFound();
