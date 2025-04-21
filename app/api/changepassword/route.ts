@@ -10,7 +10,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Missing required fields. This should not be showing up." }, { status: 400 })
   }
 
-  const user = await prisma.accounts.findUnique({ where: { email } });
+  const user = await prisma.account.findUnique({ where: { email } });
   if (!user) {
     return NextResponse.json({ error: 'Account not found, this error should never be reached' }, { status: 404 });
   }
@@ -19,7 +19,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Old password does not match' }, { status: 401 });
   }
 
-  await prisma.accounts.update({
+  await prisma.account.update({
     where: { email: email },
     data: { password: await bcrypt.hash(newpassword, 10) },
   });

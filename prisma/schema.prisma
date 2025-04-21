@@ -7,14 +7,108 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model accounts {
+model account {
   id       Int    @id @default(autoincrement())
   username String @db.VarChar(50)
   password String @db.VarChar(250)
   email    String @unique(map: "email") @db.VarChar(100)
 }
 
-model test {
-  id BigInt  @id @unique(map: "id") @default(autoincrement()) @db.UnsignedBigInt
-  tt String? @db.Text
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model external_company {
+  company_name    String            @id @db.VarChar(50)
+  industry        String?           @db.VarChar(25)
+  contact_email   String?           @db.VarChar(50)
+  external_mentor external_mentor[]
+  project         project[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model external_mentor {
+  email            String            @id @db.VarChar(50)
+  honorific        String?           @db.VarChar(3)
+  surname          String?           @db.VarChar(25)
+  company_name     String?           @db.VarChar(50)
+  external_company external_company? @relation(fields: [company_name], references: [company_name], onDelete: Cascade, onUpdate: NoAction, map: "external_mentor_ibfk_1")
+
+  @@index([company_name], map: "company_name")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model inschool_mentor {
+  email        String    @id @db.VarChar(50)
+  honorific    String?   @db.VarChar(3)
+  surname      String?   @db.VarChar(25)
+  subject_code String?   @db.Char(2)
+  project      project[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model overseeing_mentor {
+  email     String    @id @db.VarChar(50)
+  honorific String?   @db.VarChar(3)
+  surname   String?   @db.VarChar(25)
+  expertise String?   @db.VarChar(25)
+  project   project[]
+}
+
+model project {
+  internal_code     String            @id @db.Char(5)
+  title             String?           @db.VarChar(100)
+  field_of_study    String?           @db.VarChar(25)
+  taken             Boolean?
+  present_ready     Boolean?
+  poster_received   Boolean?
+  OMemail           String            @db.VarChar(50)
+  ISMemail          String?           @db.VarChar(50)
+  ecompany_name     String?           @db.VarChar(50)
+  overseeing_mentor overseeing_mentor @relation(fields: [OMemail], references: [email], onDelete: Cascade, onUpdate: NoAction, map: "project_ibfk_1")
+  inschool_mentor   inschool_mentor?  @relation(fields: [ISMemail], references: [email], onUpdate: NoAction, map: "project_ibfk_2")
+  external_company  external_company? @relation(fields: [ecompany_name], references: [company_name], onDelete: Cascade, onUpdate: NoAction, map: "project_ibfk_3")
+  publication       publication?
+  ssef_project      ssef_project?
+  student_project   student_project[]
+
+  @@index([ISMemail], map: "ISMemail")
+  @@index([OMemail], map: "OMemail")
+  @@index([ecompany_name], map: "ecompany_name")
+}
+
+model publication {
+  link             String    @id @db.VarChar(200)
+  journal          String?   @db.VarChar(100)
+  publisher        String?   @db.VarChar(50)
+  publication_date DateTime? @db.Date
+  pid              String?   @unique(map: "pid") @db.Char(5)
+  project          project?  @relation(fields: [pid], references: [internal_code], onDelete: Cascade, onUpdate: NoAction, map: "publication_ibfk_1")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model ssef_project {
+  ssef_code       String   @id @db.Char(7)
+  forms_received  Boolean?
+  poster_received Boolean?
+  result          String?  @db.VarChar(13)
+  pid             String?  @unique(map: "pid") @db.Char(5)
+  project         project? @relation(fields: [pid], references: [internal_code], onDelete: Cascade, onUpdate: NoAction, map: "ssef_project_ibfk_1")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model student {
+  studentid       String            @id @db.Char(8)
+  fname           String?           @db.VarChar(25)
+  lname           String?           @db.VarChar(25)
+  year_of_study   Int?
+  student_project student_project[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model student_project {
+  studentid     String  @db.Char(8)
+  internal_code String  @db.Char(5)
+  student       student @relation(fields: [studentid], references: [studentid], onDelete: Cascade, onUpdate: NoAction, map: "student_project_ibfk_1")
+  project       project @relation(fields: [internal_code], references: [internal_code], onDelete: Cascade, onUpdate: NoAction, map: "student_project_ibfk_2")
+
+  @@id([studentid, internal_code])
+  @@index([internal_code], map: "internal_code")
 }

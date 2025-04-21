@@ -9,7 +9,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Missing required fields. This should not be showing up." }, { status: 400 })
   }
 
-  await prisma.accounts.update({
+  await prisma.account.update({
     where: { email: email },
     data: { username: username },
   });

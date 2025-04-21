@@ -34,7 +34,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "app/components/CustomConfirmation.js", "app/components/CustomAlert.js"  ],
   "exclude": [
     "node_modules"
   ],

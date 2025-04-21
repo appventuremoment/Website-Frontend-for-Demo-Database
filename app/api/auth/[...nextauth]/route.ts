@@ -15,7 +15,7 @@ const handler = NextAuth({
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) return null
 
-        const user = await prisma.accounts.findUnique({
+        const user = await prisma.account.findUnique({
           where: { email: credentials.email },
         })
 
@@ -43,7 +43,7 @@ const handler = NextAuth({
       }
 
       if (trigger === "update") {
-        const dbUser = await prisma.accounts.findUnique({ where: { email: token.email } });
+        const dbUser = await prisma.account.findUnique({ where: { email: token.email } });
         token.id = dbUser.id;
         token.name = dbUser.username;
         token.email = dbUser.email;
@@ -54,7 +54,7 @@ const handler = NextAuth({
       // const shouldRefresh = !token.lastFetched || Date.now() - (token.lastFetched as number) > refreshInterval;
     
       // if (shouldRefresh) {
-      //   const dbUser = await prisma.accounts.findUnique({ where: { email: token.email } });
+      //   const dbUser = await prisma.account.findUnique({ where: { email: token.email } });
       //   token.id = dbUser.id;
       //   token.name = dbUser.username;
       //   token.email = dbUser.email;

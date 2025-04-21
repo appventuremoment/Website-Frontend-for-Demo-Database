@@ -28,27 +28,25 @@ function NavItem(props) {
     )
 }
 
-export default function NavBar(){    
-    const { data: session } = useSession();
-    const addSubdomain = session?.user?.name ? '/add' : "/login"
-    const searchSubdomain = session?.user?.name ? '/search' : "/login"
+export default function NavBar(){
+    const navBarRef = useRef(null);
     
     useEffect(() => {
         let lastScroll = 0;
-        const theNavBar = document.getElementById('nav-bar');
         const handleScroll = () => {
+            const navBar = navBarRef.current;
             const currentScroll = window.scrollY;
             if (currentScroll <= 0) {
-                theNavBar.classList.remove('scroll-up');
-                theNavBar.classList.remove('scroll-down');
+                navBar.classList.remove('scroll-up');
+                navBar.classList.remove('scroll-down');
             } 
             else if (currentScroll > lastScroll) {
-                theNavBar.classList.remove('scroll-up');
-                theNavBar.classList.add('scroll-down');
+                navBar.classList.remove('scroll-up');
+                navBar.classList.add('scroll-down');
             } 
             else if (currentScroll < lastScroll) {
-                theNavBar.classList.add('scroll-up');
-                theNavBar.classList.remove('scroll-down');
+                navBar.classList.add('scroll-up');
+                navBar.classList.remove('scroll-down');
             }
             lastScroll = currentScroll;
         }
@@ -59,12 +57,13 @@ export default function NavBar(){
     }, []);
 
     return (
-        <nav id="nav-bar" draggable={false}>
+        <nav id="nav-bar" draggable={false} ref={ navBarRef }>
             <ul id="navbar-nav">
             <NavItem image="home_icon.png" subdomain='/'/>
             <b id='nav-logo'>Project DB</b>
-            <NavItem image="add_icon.png" subdomain={ addSubdomain }/>
-            <NavItem image="search_icon.png" subdomain={ searchSubdomain }/>
+            <NavItem image="search_icon.png">
+                <TempSearchDropdown/>
+            </NavItem>
             <NavItem image="menu_icon.png">
                 <DropdownMenu/>
             </NavItem>
@@ -111,6 +110,31 @@ function DropdownMenu({closeDropdown}){
             <DropdownItem leftIcon="about_us_icon.png" subdomain="#about-us-div" closeDropdown={closeDropdown}>About Us</DropdownItem>
             <DropdownItem leftIcon="contact_us_icon.png" subdomain="#contact-us-div" closeDropdown={closeDropdown}>Contact Us</DropdownItem>
             <DropdownItem leftIcon="references_icon.png" subdomain="references">References</DropdownItem>
+        </div>
+    );
+}
+
+/* Temp Dropdown Menu */
+function TempSearchDropdownItem(props){
+    return(
+        <a id="menu-item" href={props.subdomain} onClick={props.closeDropdown}>
+            {props.children}
+        </a>
+    )
+}
+
+function TempSearchDropdown({closeDropdown}){
+    const { data: session } = useSession();
+    
+    return(
+        <div id="dropdown">
+            <TempSearchDropdownItem subdomain={session?.user?.name ? '/search?table=student' : "/login"} closeDropdown={closeDropdown}>Students</TempSearchDropdownItem>
+            <TempSearchDropdownItem subdomain={session?.user?.name ? '/search?table=project' : "/login"} closeDropdown={closeDropdown}>Projects</TempSearchDropdownItem>
+            <TempSearchDropdownItem subdomain={session?.user?.name ? '/search?table=ssef_project' : "/login"} closeDropdown={closeDropdown}>SSEF Projects</TempSearchDropdownItem>
+            <TempSearchDropdownItem subdomain={session?.user?.name ? '/search?table=overseeing_mentor' : "/login"} closeDropdown={closeDropdown}>Overseeing Mentors</TempSearchDropdownItem>
+            <TempSearchDropdownItem subdomain={session?.user?.name ? '/search?table=internal_mentor' : "/login"} closeDropdown={closeDropdown}>In-school Mentors</TempSearchDropdownItem>
+            <TempSearchDropdownItem subdomain={session?.user?.name ? '/search?table=external_company' : "/login"} closeDropdown={closeDropdown}>External Companies</TempSearchDropdownItem>
+            <TempSearchDropdownItem subdomain={session?.user?.name ? '/search?table=publication' : "/login"} closeDropdown={closeDropdown}>Publications</TempSearchDropdownItem>
         </div>
     );
 }

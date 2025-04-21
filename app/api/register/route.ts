@@ -10,13 +10,13 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Missing required fields" }, { status: 400 })
   }
 
-  const existingUser = await prisma.accounts.findUnique({ where: { email } })
+  const existingUser = await prisma.account.findUnique({ where: { email } })
   if (existingUser) {
     return NextResponse.json({ error: 'Email already registered' }, { status: 409 })
   }
 
   const hashedPassword = await bcrypt.hash(password, 10)
-  const _ = await prisma.accounts.create({
+  const _ = await prisma.account.create({
     data: {
       email,
       password: hashedPassword,
