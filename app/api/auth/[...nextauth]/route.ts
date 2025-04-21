@@ -24,7 +24,7 @@ const handler = NextAuth({
         }
 
         return {
-          id: String(user.id),
+          id: user.email,
           email: user.email,
           name: user.username,
         }
@@ -44,7 +44,7 @@ const handler = NextAuth({
 
       if (trigger === "update") {
         const dbUser = await prisma.account.findUnique({ where: { email: token.email } });
-        token.id = dbUser.id;
+        token.id = dbUser.email;
         token.name = dbUser.username;
         token.email = dbUser.email;
       }
@@ -55,7 +55,7 @@ const handler = NextAuth({
     
       // if (shouldRefresh) {
       //   const dbUser = await prisma.account.findUnique({ where: { email: token.email } });
-      //   token.id = dbUser.id;
+      //   token.id = dbUser.email;
       //   token.name = dbUser.username;
       //   token.email = dbUser.email;
       //   token.lastFetched = Date.now();
