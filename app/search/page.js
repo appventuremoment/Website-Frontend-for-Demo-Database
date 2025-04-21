@@ -27,7 +27,7 @@ export default function Home() {
         <Suspense fallback={<div>Loading...</div>}>
         <PubAlertProvider>
         <PubAddProvider>
-          <StudentsTable />;
+          <StudentsTable />
         </PubAddProvider>
         </PubAlertProvider>
         </Suspense>
@@ -98,9 +98,7 @@ export default function Home() {
         </Suspense>
       );
     default:
-      <Suspense fallback={<div>Loading...</div>}>
       return notFound();
-      </Suspense>
   }
 }
 
