@@ -9,42 +9,43 @@ import { useAlert } from '@components/CustomConfirmation';
 import { PubAlertProvider, usePubAlert } from '@components/CustomPublicationEdit';
 import { PubAddProvider, usePubAddAlert } from '@components/CustomPublicationAdd';
 
-export default function Home() {
+function SearchContent() {
   const searchParams = useSearchParams();
   const tableType = searchParams.get('table');
   const router = useRouter();
   const { data: session, status } = useSession();
-  // Handle Session ID rerouting
-  useEffect(() => {
-    if (status === 'loading') return; // Wait for auth token to load
+
+  React.useEffect(() => {
+    if (status === 'loading') return;
     if (status !== 'authenticated') router.push('/login');
-  }, [status, session, router])
+  }, [status, session, router]);
 
+  switch (tableType) {
+    case 'student':
+      return (
+        <PubAlertProvider>
+          <PubAddProvider>
+            <StudentsTable />
+          </PubAddProvider>
+        </PubAlertProvider>
+      );
+    case 'publication':
+      return (
+        <PubAlertProvider>
+          <PubAddProvider>
+            <PublicationsTable />
+          </PubAddProvider>
+        </PubAlertProvider>
+      );
+    default:
+      return notFound();
+  }
+}
 
+export default function Home() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      {(() => {
-        switch (tableType) {
-          case 'student':
-            return (
-              <PubAlertProvider>
-                <PubAddProvider>
-                  <PublicationsTable />
-                </PubAddProvider>
-              </PubAlertProvider>
-            );
-          case 'publication':
-            return (
-              <PubAlertProvider>
-                <PubAddProvider>
-                  <PublicationsTable />
-                </PubAddProvider>
-              </PubAlertProvider>
-            );
-          default:
-            return <div>Table type not found</div>;
-        }
-      })()}
+      <SearchContent />
     </Suspense>
   );
 }
