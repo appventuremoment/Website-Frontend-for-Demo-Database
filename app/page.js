@@ -50,11 +50,11 @@ export default function Home() {
       track.dataset.percentage = scrollDisplacement;
       track.animate({
         transform: `translate(${ scrollDisplacement }px, 0%)`
-      }, { duration: 1200, fill: "forwards"});
+      }, { duration: 1200, fill: "forwards", easing: "ease" });
       for (const image of track.getElementsByClassName("image")) {
         image.animate({
           objectPosition: `${ scrollPercentage * 100 + 100 }% 50%`
-        }, { duration: 1200, fill: "forwards"});
+        }, { duration: 1200, fill: "forwards", easing: "ease" });
       }
 
       if (divTop <= 0 && divBottom >= viewportHeight){
@@ -176,16 +176,13 @@ export default function Home() {
           <img className="image" src="imagetrack/img5.png" draggable="false"/>
           <img className="image" src="imagetrack/img6.png" draggable="false"/>
           <img className="image" src="imagetrack/img7.png" draggable="false"/>
-          <img className="image" src="imagetrack/img8.png" draggable="false"/>
-          <img className="image" src="imagetrack/img9.png" draggable="false"/>
-          <img className="image" src="imagetrack/img10.png" draggable="false"/>
         </div>
       </div>
 
       <div id='div-4'>
         <img src='why_us.png' style={{right: '5%'}} id='info-image' className='fade-in'></img>
         <b id='section-header' style={{left: '6.5%'}} className='fade-in' ref={headerRef2}>Why us?</b>
-        <p id='section-subtext' style={{left: '6.5%'}} className='fade-in'>We have worked with over 100 different shelters. Our service is blazingly fast and memory-efficient: with no runtime or garbage collector, it can power performance-critical services, run on embedded devices, and easily integrate with other services.</p>
+        <p id='section-subtext' style={{left: '6.5%'}} className='fade-in'>Our service is blazingly fast and memory-efficient: with no runtime or garbage collector, it can power performance-critical services, run on embedded devices, and easily integrate with other services.</p>
       </div>
       <div id="contact-us-div">
         <b id='contact-us-header' className='fade-in'>Contact Us</b>

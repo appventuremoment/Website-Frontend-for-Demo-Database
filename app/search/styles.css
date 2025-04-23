@@ -4,6 +4,73 @@
     gap: 2.5vmin;
 }
 
+select {
+    font-size: 2vmin;
+    border: 0.1vmin solid #707070;
+    border-radius: 0.6vmin;
+    padding: 0.5vmin;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+  
+select:hover {
+    border-color: #404040;
+}
+  
+select:focus {
+    border-color: #000000;
+    box-shadow: 0 0 0.5vmin rgba(0, 0, 0, 0.1);
+}
+  
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 2vmin;
+    height: 2vmin;
+    border: 0.1vmin solid #707070;
+    border-radius: 50%;
+    margin: 0;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+}
+  
+input[type="radio"]:checked {
+    background-color: #707070;
+    border-color: #707070;
+}
+  
+input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1vmin;
+    height: 1vmin;
+    background-color: white;
+    border-radius: 50%;
+}
+  
+input[type="radio"]:hover {
+    border-color: #404040;
+}
+  
+input[type="radio"]:checked:hover {
+    background-color: #404040;
+    border-color: #404040;
+}
+  
+label {
+    display: flex;
+    align-items: center;
+    gap: 0.5vmin;
+    font-size: 2vmin;
+    cursor: pointer;
+}
+
 /* Filter Options Styles */
 #filter-options {
     position: relative;

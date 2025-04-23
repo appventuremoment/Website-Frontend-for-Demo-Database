@@ -259,6 +259,8 @@ function ProjectsTable() {
         <button onClick={handleAdd}><img src="add_icon.png" alt="Icon" style={{ width: '4vmin', height: '4vmin' }} /></button>
         <b id="table-title">Projects</b>
         <input id="search-input" type="text" placeholder="Search" onChange={handleSearch} ref={searchBar} />
+
+        <p style={{marginTop: '1vmin', fontSize: "2vmin", textAlign: "end"}}>{tempData.length} record{tempData.length === 1 ? '' : 's'} found</p>
         <div id="table-container">
           <table id="table">
             <thead>
@@ -299,7 +301,6 @@ function ProjectsTable() {
             </tbody>
           </table>
         </div>
-        <p style={{ marginTop: '1vmin', fontSize: "2vmin", textAlign: "end" }}>{tempData.length} record{tempData.length === 1 ? '' : 's'} found</p>
       </div>
     </div>
   );
@@ -487,6 +488,8 @@ function SSEFProjectsTable() {
         <button onClick={handleAdd}><img src="add_icon.png" alt="Icon" style={{ width: '4vmin', height: '4vmin' }} /></button>
         <b id="table-title">SSEF Projects</b>
         <input id="search-input" type="text" placeholder="Search" onChange={handleSearch} ref={searchBar} />
+
+        <p style={{marginTop: '1vmin', fontSize: "2vmin", textAlign: "end"}}>{tempData.length} record{tempData.length === 1 ? '' : 's'} found</p>
         <div id="table-container">
           <table id="table">
             <thead>
@@ -517,7 +520,6 @@ function SSEFProjectsTable() {
             </tbody>
           </table>
         </div>
-        <p style={{ marginTop: '1vmin', fontSize: "2vmin", textAlign: "end" }}>{tempData.length} record{tempData.length === 1 ? '' : 's'} found</p>
       </div>
     </div>
   );
@@ -721,6 +723,7 @@ function StudentsTable() {
         <b id='table-title'>Students</b>
         <input id="search-input" type="text" placeholder="Search" onChange={ handleSearch } ref={ searchBar }/>
 
+        <p style={{marginTop: '1vmin', fontSize: "2vmin", textAlign: "end"}}>{tempData.length} record{tempData.length === 1 ? '' : 's'} found</p>
         <div id="table-container">
           <table id="table">
             <thead>
@@ -747,7 +750,6 @@ function StudentsTable() {
             </tbody>
           </table>
         </div>
-        <p style={{marginTop: '1vmin', fontSize: "2vmin", textAlign: "end"}}>{tempData.length} record{tempData.length === 1 ? '' : 's'} found</p>
       </div>
     </div>
   );
@@ -899,6 +901,7 @@ function PublicationsTable() {
         <b id='table-title'>Publications</b>
         <input id="search-input" type="text" placeholder="Search" onChange={ handleSearch } ref={ searchBar }/>
 
+        <p style={{marginTop: '1vmin', fontSize: "2vmin", textAlign: "end"}}>{tempData.length} record{tempData.length === 1 ? '' : 's'} found</p>
         <div id="table-container">
           <table id="table">
             <thead>
@@ -929,7 +932,6 @@ function PublicationsTable() {
             </tbody>
           </table>
         </div>
-        <p style={{marginTop: '1vmin', fontSize: "2vmin", textAlign: "end"}}>{tempData.length} record{tempData.length === 1 ? '' : 's'} found</p>
       </div>
     </div>
   );
