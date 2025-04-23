@@ -40,7 +40,6 @@ export async function POST(req: Request) {
       params.push(new Date(endDate))
     }
     
-    // This is safe only because of the use of ? in the query
     const results = await prisma.$queryRawUnsafe(sql, ...params)
     
     return NextResponse.json(results)

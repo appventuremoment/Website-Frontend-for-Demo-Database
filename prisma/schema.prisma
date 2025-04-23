@@ -41,8 +41,8 @@ model project {
   taken            Boolean
   present_ready    Boolean
   poster_received  Boolean
-  EMemail          String?           @db.VarChar(255)
   IMemail          String?           @db.VarChar(255)
+  EMemail          String?           @db.VarChar(255)
   ecompany_name    String?           @db.VarChar(255)
   external_mentor  external_mentor?  @relation(fields: [EMemail], references: [email], onDelete: Cascade, map: "project_ibfk_1")
   internal_mentor  internal_mentor?  @relation(fields: [IMemail], references: [email], map: "project_ibfk_2")
@@ -63,16 +63,6 @@ model publication {
   publication_date DateTime? @db.Date
   pid              String    @unique(map: "pid") @db.Char(5)
   project          project   @relation(fields: [pid], references: [internal_code], onDelete: Cascade, map: "publication_ibfk_1")
-}
-
-/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
-model ssef_project {
-  ssef_code       String  @id @db.Char(7)
-  forms_received  Boolean
-  poster_received Boolean
-  result          String? @db.VarChar(13)
-  pid             String  @unique(map: "pid") @db.Char(5)
-  project         project @relation(fields: [pid], references: [internal_code], onDelete: Cascade, map: "ssef_project_ibfk_1")
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
@@ -101,4 +91,14 @@ model internal_mentor {
   surname      String    @db.VarChar(50)
   subject_code String?   @db.Char(2)
   project      project[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model ssef_project {
+  ssef_code       String  @id @db.Char(7)
+  forms_received  Boolean
+  poster_received Boolean
+  result          String? @db.VarChar(13)
+  pid             String  @unique(map: "pid") @db.Char(5)
+  project         project @relation(fields: [pid], references: [internal_code], onDelete: Cascade, map: "ssef_project_ibfk_1")
 }

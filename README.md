@@ -1,15 +1,11 @@
-# Website Frontend for Demo Database
- because a different repo was more convenient
-
+# Project DB
+### We make tracking your projects easy
 Hosted on projectdb.vercel.app
 
 ## TODO list
-- change table logic and values in tables
-- ui to display tables and sort/filter
-- backend for sorting
-
-- ui to add and delete
+- pages for the other 4 tables
 - fancy dropdown for tables
+- get some sleep.
 
 ## These instructions assume that you are using VScode to run this project locally
 1. Install MySQL from https://dev.mysql.com/downloads/installer/

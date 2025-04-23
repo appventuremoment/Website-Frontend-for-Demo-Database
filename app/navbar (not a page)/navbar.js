@@ -130,9 +130,10 @@ function TempSearchDropdown({closeDropdown}){
         <div id="dropdown">
             <TempSearchDropdownItem subdomain={session?.user?.name ? '/search?table=student' : "/login"} closeDropdown={closeDropdown}>Students</TempSearchDropdownItem>
             <TempSearchDropdownItem subdomain={session?.user?.name ? '/search?table=project' : "/login"} closeDropdown={closeDropdown}>Projects</TempSearchDropdownItem>
+            <TempSearchDropdownItem subdomain={session?.user?.name ? '/search?table=student_project' : "/login"} closeDropdown={closeDropdown}>Student Project Relations</TempSearchDropdownItem>
             <TempSearchDropdownItem subdomain={session?.user?.name ? '/search?table=ssef_project' : "/login"} closeDropdown={closeDropdown}>SSEF Projects</TempSearchDropdownItem>
-            <TempSearchDropdownItem subdomain={session?.user?.name ? '/search?table=overseeing_mentor' : "/login"} closeDropdown={closeDropdown}>Overseeing Mentors</TempSearchDropdownItem>
-            <TempSearchDropdownItem subdomain={session?.user?.name ? '/search?table=internal_mentor' : "/login"} closeDropdown={closeDropdown}>In-school Mentors</TempSearchDropdownItem>
+            <TempSearchDropdownItem subdomain={session?.user?.name ? '/search?table=internal_mentor' : "/login"} closeDropdown={closeDropdown}>Internal Mentors</TempSearchDropdownItem>
+            <TempSearchDropdownItem subdomain={session?.user?.name ? '/search?table=external_mentor' : "/login"} closeDropdown={closeDropdown}>External Mentors</TempSearchDropdownItem>
             <TempSearchDropdownItem subdomain={session?.user?.name ? '/search?table=external_company' : "/login"} closeDropdown={closeDropdown}>External Companies</TempSearchDropdownItem>
             <TempSearchDropdownItem subdomain={session?.user?.name ? '/search?table=publication' : "/login"} closeDropdown={closeDropdown}>Publications</TempSearchDropdownItem>
         </div>

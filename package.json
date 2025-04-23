@@ -28,6 +28,7 @@
     "react-icons": "^5.4.0",
     "react-icons-kit": "^2.0.0",
     "react-transition-group": "^4.4.5",
+    "styled-components": "^6.1.17",
     "svg": "^0.1.0",
     "tailwind-merge": "^2.6.0"
   },

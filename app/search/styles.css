@@ -1,6 +1,7 @@
 #outer-div{
     display: flex;
     justify-content: center;
+    gap: 2.5vmin;
 }
 
 /* Filter Options Styles */
@@ -19,10 +20,12 @@
 }
 
 #filter-input {
-    font-size: 1.25vmin;
+    width: 100%;
+    font-size: 2vmin;
     border-radius: 0.6vmin;
     padding: 0.25vmin 0.60vmin;
-    flex-grow: 1;
+    border: 0.1vmin solid #c4c4c4;
+    border-radius: 0.6vmin;
 }
 
 /* Search Styles */
@@ -42,9 +45,9 @@
     position: absolute;
     margin-left: auto;
     right: 0vmin;
-    top: 2vmin;
+    top: 1.5vmin;
     width: 30%;
-    font-size: 1.5vmin;
+    font-size: 2vmin;
     border: 0.1vmin solid #c4c4c4;
     border-radius: 0.6vmin;
     padding: 0.25vmin 0.60vmin;
@@ -52,13 +55,13 @@
 
 /* Table View Styles */
 #table-container {
-    top: 7.5vmin;
+    top: 10vmin;
     width: 100%;
     border: 0.01vmin solid #e5e7eb;
     border-radius: 0.5vmin;
     box-shadow: 0 0.01vmin 0.02vmin 0 rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-    font-size: 1.5vmin;
+    overflow: auto;
+    font-size: 2vmin;
     font-family: var(--alternative-font);
 }
 

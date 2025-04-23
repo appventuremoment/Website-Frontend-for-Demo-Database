@@ -3,8 +3,7 @@ import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 
 export async function POST(req: Request) {
-  const body = await req.json();
-  const { project_code, journal, publisher, publication_date, link } = body;
+  const { project_code, journal, publisher, publication_date, link } = await req.json();
 
   try {
     await prisma.publication.create({

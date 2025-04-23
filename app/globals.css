@@ -35,7 +35,7 @@ body {
   font-style: normal;
 }
 
-input, input[type=email], input[type=text], input[type=password] {
+input, input[type=number], input[type=email], input[type=text], input[type=password] {
   font-family: "FF DIN";
   letter-spacing: -0.05vw;
 }
