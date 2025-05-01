@@ -50,50 +50,50 @@ export default function Home() {
     const [password2, setPWField2Text] = useState("");
     const [type1, setPWField1Type] = useState('password');
     const [type2, setPWField2Type] = useState('password');
-    const [icon1, toggleIcon1] = useState('eye_disabled_icon.png');
-    const [icon2, toggleIcon2] = useState('eye_disabled_icon.png');
+    const [icon1, toggleIcon1] = useState('/eye_disabled_icon.png');
+    const [icon2, toggleIcon2] = useState('/eye_disabled_icon.png');
   
     const eyeIcon1HandleClick = () => {
       if (type1==='password'){
-         toggleIcon1('eye_enabled_icon.png');
+         toggleIcon1('/eye_enabled_icon.png');
          setPWField1Type('text')
       } else {
-         toggleIcon1('eye_disabled_icon.png')
+         toggleIcon1('/eye_disabled_icon.png')
          setPWField1Type('password')
       }
    }
 
    const eyeIcon2HandleClick = () => {
     if (type2==='password'){
-       toggleIcon2('eye_enabled_icon.png');
+       toggleIcon2('/eye_enabled_icon.png');
        setPWField2Type('text')
     } else {
-       toggleIcon2('eye_disabled_icon.png')
+       toggleIcon2('/eye_disabled_icon.png')
        setPWField2Type('password')
     }
  }
 
  const handleIcon1MouseEnter = () => {
   if (type1 === 'password') {
-    toggleIcon1('eye_enabled_icon.png');
+    toggleIcon1('/eye_enabled_icon.png');
   }
 };
 
 const handleIcon1MouseLeave = () => {
   if (type1 === 'password') {
-    toggleIcon1('eye_disabled_icon.png');
+    toggleIcon1('/eye_disabled_icon.png');
   }
 };
 
 const handleIcon2MouseEnter = () => {
   if (type2 === 'password') {
-    toggleIcon2('eye_enabled_icon.png');
+    toggleIcon2('/eye_enabled_icon.png');
   }
 };
 
 const handleIcon2MouseLeave = () => {
   if (type2 === 'password') {
-    toggleIcon2('eye_disabled_icon.png');
+    toggleIcon2('/eye_disabled_icon.png');
   }
 };
 

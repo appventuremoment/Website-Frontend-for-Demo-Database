@@ -37,27 +37,27 @@ export default function Home() {
   const [email, setEmailFieldText] = useState("");
   const [password, setPWFieldText] = useState("");
   const [type, setPWFieldType] = useState('password');
-  const [icon, toggleIcon] = useState('eye_disabled_icon.png');
+  const [icon, toggleIcon] = useState('/eye_disabled_icon.png');
 
   const eyeIconHandleClick = () => {
     if (type==='password'){
-       toggleIcon('eye_enabled_icon.png');
+       toggleIcon('/eye_enabled_icon.png');
        setPWFieldType('text');
     } else {
-       toggleIcon('eye_disabled_icon.png');
+       toggleIcon('/eye_disabled_icon.png');
        setPWFieldType('password');
     }
   };
 
   const handleIconMouseEnter = () => {
     if (type === 'password') {
-      toggleIcon('eye_enabled_icon.png');
+      toggleIcon('/eye_enabled_icon.png');
     }
   };
 
   const handleIconMouseLeave = () => {
     if (type === 'password') {
-      toggleIcon('eye_disabled_icon.png');
+      toggleIcon('/eye_disabled_icon.png');
     }
   };
  

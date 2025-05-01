@@ -59,12 +59,12 @@ export default function NavBar(){
     return (
         <nav id="nav-bar" draggable={false} ref={ navBarRef }>
             <ul id="navbar-nav">
-            <NavItem image="home_icon.png" subdomain='/'/>
+            <NavItem image="/home_icon.png" subdomain='/'/>
             <b id='nav-logo'>Project DB</b>
-            <NavItem image="search_icon.png">
+            <NavItem image="/search_icon.png">
                 <TempSearchDropdown/>
             </NavItem>
-            <NavItem image="menu_icon.png">
+            <NavItem image="/menu_icon.png">
                 <DropdownMenu/>
             </NavItem>
             </ul>
@@ -105,11 +105,11 @@ function DropdownMenu({closeDropdown}){
 
     return(
         <div id="dropdown">
-            <LoginDropdownItem leftIcon="register_icon.png" subdomain={loginSubdomain}>{loginElem}</LoginDropdownItem>
+            <LoginDropdownItem leftIcon="/register_icon.png" subdomain={loginSubdomain}>{loginElem}</LoginDropdownItem>
             <hr style={{ border: "none", height: "0.05vmin", backgroundColor: "#505356", margin: "1vh auto"}}></hr>
-            <DropdownItem leftIcon="about_us_icon.png" subdomain="#about-us-div" closeDropdown={closeDropdown}>About Us</DropdownItem>
-            <DropdownItem leftIcon="contact_us_icon.png" subdomain="#contact-us-div" closeDropdown={closeDropdown}>Contact Us</DropdownItem>
-            <DropdownItem leftIcon="references_icon.png" subdomain="references">References</DropdownItem>
+            <DropdownItem leftIcon="/about_us_icon.png" subdomain="#about-us-div" closeDropdown={closeDropdown}>About Us</DropdownItem>
+            <DropdownItem leftIcon="/contact_us_icon.png" subdomain="#contact-us-div" closeDropdown={closeDropdown}>Contact Us</DropdownItem>
+            <DropdownItem leftIcon="/references_icon.png" subdomain="references">References</DropdownItem>
         </div>
     );
 }

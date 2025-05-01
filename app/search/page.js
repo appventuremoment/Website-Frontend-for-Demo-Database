@@ -256,7 +256,7 @@ function ProjectsTable() {
         </div>
       </div>
       <div id="search-div">
-        <button onClick={handleAdd}><img src="add_icon.png" alt="Icon" style={{ width: '4vmin', height: '4vmin' }} /></button>
+        <button onClick={handleAdd}><img src="/add_icon.png" alt="Icon" style={{ width: '4vmin', height: '4vmin' }} /></button>
         <b id="table-title">Projects</b>
         <input id="search-input" type="text" placeholder="Search" onChange={handleSearch} ref={searchBar} />
 
@@ -294,8 +294,8 @@ function ProjectsTable() {
                   <td>{tabledata.company_name}</td>
                   <td>{tabledata.industry}</td>
                   <td>{tabledata.ssef_code}</td>
-                  <td style={{ textAlign: "center"}}><button onClick={() => handleEdit(tabledata)}><img src="edit_icon.png" alt="Icon" style={{ width: '2vmin', height: '2vmin' }} /></button></td>
-                  <td style={{ textAlign: "center"}}><button onClick={() => handleDelete(tabledata.internal_code)}><img src="delete_icon.png" alt="Icon" style={{ width: '2.5vmin', height: '2.5vmin' }} /></button></td>
+                  <td style={{ textAlign: "center"}}><button onClick={() => handleEdit(tabledata)}><img src="/edit_icon.png" alt="Icon" style={{ width: '2vmin', height: '2vmin' }} /></button></td>
+                  <td style={{ textAlign: "center"}}><button onClick={() => handleDelete(tabledata.internal_code)}><img src="/delete_icon.png" alt="Icon" style={{ width: '2.5vmin', height: '2.5vmin' }} /></button></td>
                 </tr>
               ))}
             </tbody>
@@ -485,7 +485,7 @@ function SSEFProjectsTable() {
         </div>
       </div>
       <div id="search-div">
-        <button onClick={handleAdd}><img src="add_icon.png" alt="Icon" style={{ width: '4vmin', height: '4vmin' }} /></button>
+        <button onClick={handleAdd}><img src="/add_icon.png" alt="Icon" style={{ width: '4vmin', height: '4vmin' }} /></button>
         <b id="table-title">SSEF Projects</b>
         <input id="search-input" type="text" placeholder="Search" onChange={handleSearch} ref={searchBar} />
 
@@ -513,8 +513,8 @@ function SSEFProjectsTable() {
                   <td style={{ textAlign: "center"}}>{tabledata.forms_received === 1 ? '✅' : '❌'}</td>
                   <td style={{ textAlign: "center"}}>{tabledata.poster_received === 1 ? '✅' : '❌'}</td>
                   <td>{tabledata.result}</td>
-                  <td style={{ textAlign: "center"}}><button onClick={() => handleEdit(tabledata)}><img src="edit_icon.png" alt="Icon" style={{ width: '2vmin', height: '2vmin' }} /></button></td>
-                  <td style={{ textAlign: "center"}}><button onClick={() => handleDelete(tabledata.ssef_code)}><img src="delete_icon.png" alt="Icon" style={{ width: '2.5vmin', height: '2.5vmin' }} /></button></td>
+                  <td style={{ textAlign: "center"}}><button onClick={() => handleEdit(tabledata)}><img src="/edit_icon.png" alt="Icon" style={{ width: '2vmin', height: '2vmin' }} /></button></td>
+                  <td style={{ textAlign: "center"}}><button onClick={() => handleDelete(tabledata.ssef_code)}><img src="/delete_icon.png" alt="Icon" style={{ width: '2.5vmin', height: '2.5vmin' }} /></button></td>
                 </tr>
               ))}
             </tbody>
@@ -719,7 +719,7 @@ function StudentsTable() {
       </div>
 
       <div id='search-div'>
-        <button onClick={ handleAdd }><img src="add_icon.png" alt="Icon" style={{ width: '4vmin', height: '4vmin' }}  /></button>
+        <button onClick={ handleAdd }><img src="/add_icon.png" alt="Icon" style={{ width: '4vmin', height: '4vmin' }}  /></button>
         <b id='table-title'>Students</b>
         <input id="search-input" type="text" placeholder="Search" onChange={ handleSearch } ref={ searchBar }/>
 
@@ -743,8 +743,8 @@ function StudentsTable() {
                   <td>{tabledata.fname}</td>
                   <td>{tabledata.lname}</td>
                   <td>{tabledata.year_of_study}</td>
-                  <td><button onClick={() => handleEdit(tabledata)}><img src="edit_icon.png" alt="Icon" style={{ width: '2vmin', height: '2vmin' }} /></button></td>
-                  <td><button onClick={() => handleDelete(tabledata.studentid)}><img src="delete_icon.png" alt="Icon" style={{ width: '2.5vmin', height: '2.5vmin' }}  /></button></td>
+                  <td><button onClick={() => handleEdit(tabledata)}><img src="/edit_icon.png" alt="Icon" style={{ width: '2vmin', height: '2vmin' }} /></button></td>
+                  <td><button onClick={() => handleDelete(tabledata.studentid)}><img src="/delete_icon.png" alt="Icon" style={{ width: '2.5vmin', height: '2.5vmin' }}  /></button></td>
                 </tr>
               ))}
             </tbody>
@@ -897,7 +897,7 @@ function PublicationsTable() {
       </div>
 
       <div id='search-div'>
-        <button onClick={ handleAdd }><img src="add_icon.png" alt="Icon" style={{ width: '4vmin', height: '4vmin' }}  /></button>
+        <button onClick={ handleAdd }><img src="/add_icon.png" alt="Icon" style={{ width: '4vmin', height: '4vmin' }}  /></button>
         <b id='table-title'>Publications</b>
         <input id="search-input" type="text" placeholder="Search" onChange={ handleSearch } ref={ searchBar }/>
 
@@ -925,8 +925,8 @@ function PublicationsTable() {
                   <td>{tabledata.publisher}</td>
                   <td>{tabledata.publication_date}</td>
                   <td>{tabledata.link}</td>
-                  <td style={{ textAlign: "center"}}><button onClick={() => handleEdit(tabledata)}><img src="edit_icon.png" alt="Icon" style={{ width: '2vmin', height: '2vmin' }} /></button></td>
-                  <td style={{ textAlign: "center"}}><button onClick={() => handleDelete(tabledata.link)}><img src="delete_icon.png" alt="Icon" style={{ width: '2.5vmin', height: '2.5vmin' }}  /></button></td>
+                  <td style={{ textAlign: "center"}}><button onClick={() => handleEdit(tabledata)}><img src="/edit_icon.png" alt="Icon" style={{ width: '2vmin', height: '2vmin' }} /></button></td>
+                  <td style={{ textAlign: "center"}}><button onClick={() => handleDelete(tabledata.link)}><img src="/delete_icon.png" alt="Icon" style={{ width: '2.5vmin', height: '2.5vmin' }}  /></button></td>
                 </tr>
               ))}
             </tbody>

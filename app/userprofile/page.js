@@ -125,7 +125,7 @@ export default function Home() {
   return (
     <div id='outer-div' className='flex gap-10'>
       <div id='profile-page'>
-        <img id='profile-icon' src='register_icon.png'></img>
+        <img id='profile-icon' src='/register_icon.png'></img>
         { editProfileElems }
       </div>
       <div id='settings'>

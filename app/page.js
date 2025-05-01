@@ -163,36 +163,36 @@ export default function Home() {
       <div id='about-us-div'>
         <b id='section-header' style={{right: '7.5%'}} className='fade-in' ref={headerRef1}>Who are we?</b>
         <p id='section-subtext' style={{right: '7.5%'}} className='fade-in'>Originally focused on storing projects for NUS High, we are now expanding our platform to support schools nationwide, helping organizations manage and share projects more efficiently.</p>
-        <img src='who_are_we.png' style={{left: '5%'}} id='info-image' className='fade-in'></img>
+        <img src='/who_are_we.png' style={{left: '5%'}} id='info-image' className='fade-in'></img>
       </div>
 
       <div id='div-3' ref={ div3Ref }>
         <p id='div-3-header'  className='fade-in' ref={ div3HeaderRef }>Projects in our database</p>
         <div id="image-track" draggable={false} ref={ trackRef }>
-          <img className="image" src="imagetrack/img1.png" draggable="false"/>
-          <img className="image" src="imagetrack/img2.png" draggable="false"/>
-          <img className="image" src="imagetrack/img3.png" draggable="false"/>
-          <img className="image" src="imagetrack/img4.png" draggable="false"/>
-          <img className="image" src="imagetrack/img5.png" draggable="false"/>
-          <img className="image" src="imagetrack/img6.png" draggable="false"/>
-          <img className="image" src="imagetrack/img7.png" draggable="false"/>
+          <img className="image" src="/imagetrack/img1.png" draggable="false"/>
+          <img className="image" src="/imagetrack/img2.png" draggable="false"/>
+          <img className="image" src="/imagetrack/img3.png" draggable="false"/>
+          <img className="image" src="/imagetrack/img4.png" draggable="false"/>
+          <img className="image" src="/imagetrack/img5.png" draggable="false"/>
+          <img className="image" src="/imagetrack/img6.png" draggable="false"/>
+          <img className="image" src="/imagetrack/img7.png" draggable="false"/>
         </div>
       </div>
 
       <div id='div-4'>
-        <img src='why_us.png' style={{right: '5%'}} id='info-image' className='fade-in'></img>
+        <img src='/why_us.png' style={{right: '5%'}} id='info-image' className='fade-in'></img>
         <b id='section-header' style={{left: '6.5%'}} className='fade-in' ref={headerRef2}>Why us?</b>
         <p id='section-subtext' style={{left: '6.5%'}} className='fade-in'>Our service is blazingly fast and memory-efficient: with no runtime or garbage collector, it can power performance-critical services, run on embedded devices, and easily integrate with other services.</p>
       </div>
       <div id="contact-us-div">
         <b id='contact-us-header' className='fade-in'>Contact Us</b>
-        <img id='contact-us-icon' className='fade-in' style={{left: '15%', top: '40%'}} src='location_icon.png'></img>
+        <img id='contact-us-icon' className='fade-in' style={{left: '15%', top: '40%'}} src='/location_icon.png'></img>
         <p id='contact-us-details' className='fade-in' style={{left: '20%', top: '40%'}}>123 Someplace St., A City, ST 45678</p>
-        <img id='contact-us-icon' className='fade-in'style={{left: '60%', top: '40%'}} src='phone_icon.png'></img>
+        <img id='contact-us-icon' className='fade-in'style={{left: '60%', top: '40%'}} src='/phone_icon.png'></img>
         <p id='contact-us-details' className='fade-in' style={{left: '65%', top: '40%'}}>+123 4567 8900</p>
-        <img id='contact-us-icon' className='fade-in' style={{left: '15%', top: '60%'}} src='email_icon.png'></img>
+        <img id='contact-us-icon' className='fade-in' style={{left: '15%', top: '60%'}} src='/email_icon.png'></img>
         <p id='contact-us-details' className='fade-in' style={{left: '20%', top: '60%'}}>test@testmail.com</p>
-        <img id='contact-us-icon' className='fade-in' style={{left: '60%', top: '60%'}} src='website_icon.png'></img>
+        <img id='contact-us-icon' className='fade-in' style={{left: '60%', top: '60%'}} src='/website_icon.png'></img>
         <p id='contact-us-details' className='fade-in' style={{left: '65%', top: '60%'}}>projectdb.vercel.app</p>
       </div>
   </main>
